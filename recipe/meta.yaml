@@ -1,5 +1,5 @@
 {% set name = "grakel" %}
-{% set version = "0.1.8" %}
+{% set version = "0.1.10" %}
 
 
 package:
@@ -7,17 +7,18 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/grakel-{{ version }}.zip
-  sha256: 44cbfbeadc3d7cf8de22fdb59081b2fc36b9a2cbdeedd848ac6ea85208009a31
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/GraKeL-{{ version }}.tar.gz
+  sha256: 0c87f716d8cd69741cf1aa63a230a74c3a8957f8485b2a18689274934ef8fd51
 
 build:
-  number: 5
+  number: 0
   skip: true   # [py>=40]
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
   host:
     - pip
     - numpy
