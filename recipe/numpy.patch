@@ -1,0 +1,22 @@
+From eade421c425c78258a5f3162e91da21cd255307e Mon Sep 17 00:00:00 2001
+From: Jan Janssen <jan-janssen@users.noreply.github.com>
+Date: Tue, 21 May 2024 21:49:51 -0500
+Subject: [PATCH] Update random_walk.py
+
+---
+ grakel/kernels/random_walk.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/grakel/kernels/random_walk.py b/grakel/kernels/random_walk.py
+index 55a59a5..5c89608 100644
+--- a/grakel/kernels/random_walk.py
++++ b/grakel/kernels/random_walk.py
+@@ -7,7 +7,7 @@
+ 
+ from itertools import product
+ 
+-from numpy import ComplexWarning
++from numpy.exceptions import ComplexWarning
+ from numpy.linalg import inv
+ from numpy.linalg import eig
+ from numpy.linalg import multi_dot

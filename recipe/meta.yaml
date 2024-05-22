@@ -9,9 +9,12 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/GraKeL-{{ version }}.tar.gz
   sha256: 0c87f716d8cd69741cf1aa63a230a74c3a8957f8485b2a18689274934ef8fd51
+  patches:
+    - numpy.patch
 
 build:
-  number: 1
+  number: 2
+  skip: true  # [py<=38]
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
