@@ -10,7 +10,7 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/grakel-{{ version }}.zip
   sha256: 44cbfbeadc3d7cf8de22fdb59081b2fc36b9a2cbdeedd848ac6ea85208009a31
   patches:
-    - numpy.patch  # [np>=200]
+    - numpy.patch  # [np>=130]
 
 build:
   number: 6
