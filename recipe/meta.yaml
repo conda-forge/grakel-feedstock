@@ -22,7 +22,7 @@ requirements:
     - {{ stdlib("c") }}
   host:
     - pip
-    - numpy
+    - numpy >=1.25.0
     - python
     - cython >=0.27.3
   run:
@@ -30,7 +30,7 @@ requirements:
     - future >=0.16.0
     - joblib
     - nose >=1.1.2
-    - numpy >=1.14.0
+    - numpy >=1.25.0
     - python
     - scikit-learn >=0.19
     - six >=1.11.0
