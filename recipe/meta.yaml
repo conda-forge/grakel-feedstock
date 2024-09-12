@@ -25,6 +25,7 @@ requirements:
     - pip
     - numpy
     - python
+    - setuptools
     - cython >=0.27.3
   run:
     - cython >=0.27.3
