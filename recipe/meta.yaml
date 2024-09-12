@@ -13,7 +13,7 @@ source:
     - numpy.patch
 
 build:
-  number: 2
+  number: 3
   skip: true  # [py<=38]
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -25,6 +25,7 @@ requirements:
     - pip
     - numpy
     - python
+    - setuptools
     - cython >=0.27.3
   run:
     - cython >=0.27.3
