@@ -1,24 +1,26 @@
-{% set name = "grakel" %}
-{% set version = "0.1.11" %}
+schema_version: 1
 
+context:
+  name: grakel
+  version: "0.1.11"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
   sha256: 36e4e6636b3a5657b820aa1b0d01e5f1f3ff0e13bd5d82449f68d07403f411a4
 
 build:
-  number: 0
-  skip: true  # [py>=313]
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 1
+  skip: match(python, ">=3.13")
+  script: ${{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
-    - {{ stdlib("c") }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
   host:
     - pip
     - numpy
@@ -35,31 +37,28 @@ requirements:
     - scikit-learn >=0.19
     - six >=1.11.0
 
-test:
-  imports:
-    - grakel
-    - grakel.datasets
-  commands:
-    - pip check
-  requires:
-    - pip
+tests:
+  - python:
+      imports:
+        - grakel
+        - grakel.datasets
+      pip_check: true
 
 about:
-  home: https://ysig.github.io/GraKeL/
   license: BSD-3-Clause
-  license_family: BSD
   license_file: LICENSE  # Waiting for License to be included in pip package
-  summary: 'A scikit-learn compatible library for graph kernels'
+  summary: A scikit-learn compatible library for graph kernels
   description: |
-    GraKeL is a library that provides implementations of several 
+    GraKeL is a library that provides implementations of several
     well-established graph kernels. The library unifies these kernels
     into a common framework. Furthermore, it provides implementations of
     some frameworks that work on top of graph kernels. Specifically,
     GraKeL contains 15 kernels and 2 frameworks. The library is compatible
     with the scikit-learn pipeline allowing easy and fast integration
     inside machine learning algorithms.
-  doc_url: https://ysig.github.io/GraKeL/
-  dev_url: https://github.com/ysig/GraKeL
+  homepage: https://ysig.github.io/GraKeL/
+  repository: https://github.com/ysig/GraKeL
+  documentation: https://ysig.github.io/GraKeL/
 
 extra:
   recipe-maintainers:
